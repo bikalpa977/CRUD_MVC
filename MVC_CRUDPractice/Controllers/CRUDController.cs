@@ -47,10 +47,56 @@ namespace MVC_CRUDPractice.Controllers
             using (var context = new CRUD_PracticeEntities())
             {
 
-                
+
                 var data = context.Students.ToList();
                 return View(data);
             }
+        }
+
+
+
+
+        public ActionResult Update(int Studentid)
+        {
+            using (var context = new CRUD_PracticeEntities())
+            {
+                var data = context.Students.Where(x => x.StudentID == Studentid).SingleOrDefault();
+                return View(data);
+            }
+        }
+
+        // To specify that this will be 
+        // invoked when post method is called
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(int Studentid, Student model)
+        {
+            using (var context = new CRUD_PracticeEntities())
+            {
+
+                // Use of lambda expression to access
+                // particular record from a database
+                var data = context.Students.FirstOrDefault(x => x.StudentID == Studentid);
+
+                // Checking if any such record exist 
+                if (data != null)
+                {
+                    data.FirstName = model.FirstName;
+                    data.LastName = model.LastName;
+                    data.Email = model.Email;
+                    data.StudentAddress = model.StudentAddress;
+                    context.SaveChanges();
+
+                    // It will redirect to 
+                    // the Read method
+                    return RedirectToAction("Read");
+                }
+                else
+                    return View();
+            }
+
+
+
         }
     }
 }
