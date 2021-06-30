@@ -94,9 +94,32 @@ namespace MVC_CRUDPractice.Controllers
                 else
                     return View();
             }
-
-
-
         }
+
+
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int Studentid)
+        {
+            using (var context = new CRUD_PracticeEntities())
+            {
+                var data = context.Students.FirstOrDefault(x => x.StudentID == Studentid);
+                if (data != null)
+                {
+                    context.Students.Remove(data);
+                    context.SaveChanges();
+                    return RedirectToAction("Read");
+                }
+                else
+                    return View();
+            }
+        }
+
     }
 }
