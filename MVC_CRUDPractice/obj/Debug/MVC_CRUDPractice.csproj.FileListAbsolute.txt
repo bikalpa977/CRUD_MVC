@@ -80,3 +80,4 @@ C:\Users\Bikalpa\source\repos\MVC_CRUDPractice\MVC_CRUDPractice\bin\EntityFramew
 C:\Users\Bikalpa\source\repos\MVC_CRUDPractice\MVC_CRUDPractice\bin\EntityFramework.SqlServer.dll
 C:\Users\Bikalpa\source\repos\MVC_CRUDPractice\MVC_CRUDPractice\bin\EntityFramework.xml
 C:\Users\Bikalpa\source\repos\MVC_CRUDPractice\MVC_CRUDPractice\bin\EntityFramework.SqlServer.xml
+C:\Users\Bikalpa\source\repos\MVC_CRUDPractice\MVC_CRUDPractice\obj\Debug\MVC_CRUDPractice.csproj.AssemblyReference.cache

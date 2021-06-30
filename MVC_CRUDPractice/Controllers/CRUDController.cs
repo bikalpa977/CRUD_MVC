@@ -39,5 +39,18 @@ namespace MVC_CRUDPractice.Controllers
             // display the message
             return View();
         }
+
+
+        [HttpGet] // Set the attribute to Read
+        public ActionResult Read()
+        {
+            using (var context = new CRUD_PracticeEntities())
+            {
+
+                
+                var data = context.Students.ToList();
+                return View(data);
+            }
+        }
     }
 }
